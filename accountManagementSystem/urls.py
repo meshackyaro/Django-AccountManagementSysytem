@@ -23,5 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('account/', include("account.urls")),
     # path("account/", include("account.urls")),
-    path('api/v1/', include("new_account.urls"))
+    path('api/v1/', include("new_account.urls")),
 ]

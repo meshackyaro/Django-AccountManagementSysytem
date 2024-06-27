@@ -12,3 +12,4 @@ class AccountAdmin(admin.ModelAdmin):
     list_editable = ['first_name', 'last_name', 'account_type']
     sortable_by = ['account_number', 'first_name', 'last_name', 'account_type']
 
+
