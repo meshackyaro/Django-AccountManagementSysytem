@@ -10,17 +10,14 @@ from .serializer import AccountCreateSerializer
 from .serializer import AccountSerializer
 
 
-# To combine related views into one instead of repeating codes for each clas
+# To combine related views into one instead of repeating codes for each class
 class AccountViewSet(viewsets.ModelViewSet):
     queryset = Account.objects.all()
     serializer_class = AccountCreateSerializer
 
 
-
-
 # USING MIXINS
 class ListAccount(ListCreateAPIView):
-
     queryset = Account.objects.all()
     serializer_class = AccountCreateSerializer
 
@@ -63,6 +60,7 @@ class ListAccount(ListCreateAPIView):
 class AccountDetail(RetrieveUpdateDestroyAPIView):
     queryset = Account.objects.all()
     serializer_class = AccountCreateSerializer
+
 
 # # 1. function based view
 # class AccountDetail(ListCreateAPIView):
