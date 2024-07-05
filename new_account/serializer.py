@@ -22,10 +22,17 @@ class AccountSerializer(serializers.ModelSerializer):
 class AccountCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Account
-        fields = ['first_name', 'last_name', 'pin', 'account_type']
+        fields = ['user_id', 'account_number', 'pin', 'account_type']
 
-    # account_number = serializers.CharField(max_length=10)
-    # first_name = serializers.CharField(max_length=25)
-    # last_name = serializers.CharField(max_length=25)
-    # balance = serializers.DecimalField(max_digits=9, decimal_places=2)
-    # account_type = serializers.CharField(max_length=11)
+
+class DepositWithdrawalSerializer(serializers.Serializer):
+    account_number = serializers.CharField(max_length=10)
+    amount = serializers.DecimalField(max_digits=20, decimal_places=2)
+
+
+class WithdrawalSerializer(serializers.Serializer):
+    account_number = serializers.CharField(max_length=10)
+    amount = serializers.DecimalField(max_digits=20, decimal_places=2)
+    pin = serializers.CharField(max_length=4)
+
+class TransferSerializer()

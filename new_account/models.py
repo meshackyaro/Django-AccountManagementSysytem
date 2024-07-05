@@ -10,10 +10,7 @@ class Account(models.Model):
     account_number = models.CharField(max_length=10,
                                       default=generate_account_number,
                                       unique=True, primary_key=True)
-    first_name = models.CharField(max_length=25)
-    last_name = models.CharField(max_length=25)
-    pin = models.CharField(max_length=4, validators=[validate_pin])
-
+    pin = models.CharField(max_length=4, validators=[validate_pin], default='0000')
     balance = models.DecimalField(max_digits=9, decimal_places=2, default=0.00)
     ACCOUNT_TYPE = [
         ('SAVINGS', 'Savings'),
@@ -23,7 +20,7 @@ class Account(models.Model):
     account_type = models.CharField(choices=ACCOUNT_TYPE, max_length=11, default='SAVINGS')
 
     def __str__(self):
-        return f"{self.first_name} {self.last_name} {self.account_type} {self.account_number} {self.balance}"
+        return f"{self.account_type} {self.balance}"
 
 
 class Transaction(models.Model):
